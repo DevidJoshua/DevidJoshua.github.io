@@ -1,9 +1,43 @@
 <html>
-
     <head>
-    <title>Testo123s</title>
+        <title>Deyo conference</title>
+        <style>
+            #main{
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <script src="https://bheem.erevnaraya.com/external_api.js"></script>
+        <script>
+            function loadBheem()
+            {
+                const opt={
+                        id:navigator.userAgent,
+                        email:'Anonymous@mail.com',
+                        displayName:'anonymous'
+                    }
+                const _jitsi = new window.JitsiMeetExternalAPI('bheem.erevnaraya.com', {
+                    roomName:"coba32323",
+                    parentNode: document.getElementById("conference"),
+                    userInfo:opt
+                })
+            }
+        </script>
     </head>
     <body>
-        <marquee>coba,,, ererekjrkejkrjeljkr</marquee>
+        <iframe id="conference" src="https://bheem.erevnaraya.com" onload="loadBheem()"/>
     </body>
+    
+    <script>
+        var el=document.getElementById("conference");
+        
+        function getParams() {
+            const queryString = window.location.search;
+
+            const urlParams = new URLSearchParams(queryString);
+            const page_type = urlParams.get('roomId');
+            return page_type;
+        };
+        el.src("https://bheem.erevnaraya.com"+getParams())
+    </script>
 </html>
